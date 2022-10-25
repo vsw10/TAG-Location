@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tag Location</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="property_name_hint">Enter property name</string>
+    <string name="property_coordinates_hint">property coordinates</string>
+    <string name="property_coordinates">Property Coordinates</string>
+    <string name="property_name">Property Name</string>
+    <string name="submit">SUBMIT</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="CustomModalSheet_UserInfo" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet_user_info</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme_UserInfo" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomModalSheet_UserInfo</item>
+    </style>
+</resources>
