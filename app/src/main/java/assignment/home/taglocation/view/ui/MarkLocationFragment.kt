@@ -63,7 +63,7 @@ class MarkLocationFragment : BottomSheetDialogFragment(), View.OnClickListener {
      * Function to save the Property Details to the Db
      */
     private fun savePropertyName() {
-        fragmentLocationMarkBinding.propertyNameEdittext?.let {
+        fragmentLocationMarkBinding.propertyNameEdittext.let {
             if (it.text.toString().isNullOrEmpty()) {
                 Toast.makeText(
                     context,
@@ -82,9 +82,6 @@ class MarkLocationFragment : BottomSheetDialogFragment(), View.OnClickListener {
                 markLocationFragmentViewModel.saveRealmObjects(TagLocationModel())
                 finishFragment()
             }
-
-        } ?: kotlin.run {
-            Toast.makeText(context, "Enter Property Name", Toast.LENGTH_SHORT).show()
 
         }
     }
@@ -143,7 +140,7 @@ class MarkLocationFragment : BottomSheetDialogFragment(), View.OnClickListener {
     }
 
     override fun getTheme(): Int {
-        return R.style.AppBottomSheetDialogTheme_UserInfo
+        return R.style.AppBottomSheetDialogTheme_EnterDetails
     }
 
     /**

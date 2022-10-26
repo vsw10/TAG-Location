@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:maxHeight="@dimen/four_hundred_dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
+        android:id="@+id/layout_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/five_dp"
+            android:layout_marginEnd="@dimen/five_dp"
+            android:clickable="true"
+            android:src="@drawable/ic_baseline_cancel_24"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/action_card_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/eighty_dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="@dimen/thirty_dp"
@@ -43,25 +53,12 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Property Name" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/five_dp"
-                    android:layout_marginEnd="@dimen/five_dp"
-
-                    android:clickable="true"
-
-                    android:src="@drawable/ic_baseline_cancel_24"
-                    app:layout_constraintRight_toRightOf="parent"
-                    tools:ignore="MissingConstraints" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/property_name_input_layout"
-
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/thirty_dp"
+                    android:layout_height="@dimen/fifty_dp"
+                    android:layout_marginTop="@dimen/ten_dp"
                     app:hintEnabled="false"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -72,6 +69,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/edittext_background"
+                        android:baselineAligned="false"
                         android:cursorVisible="true"
                         android:imeOptions="actionNext"
                         android:maxLines="2"
@@ -87,7 +85,7 @@
                     android:id="@+id/propertyCoordinates"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/thirty_dp"
+                    android:layout_marginTop="@dimen/ten_dp"
                     android:text="@string/property_coordinates"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -100,8 +98,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/property_coordinates_input_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/hundred_dp"
-                    android:layout_marginTop="@dimen/thirty_dp"
+                    android:layout_height="@dimen/seventy_five_dp"
+                    android:layout_marginTop="@dimen/ten_dp"
                     app:boxBackgroundMode="none"
                     app:hintEnabled="false"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -130,10 +128,11 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/submit"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/thirty_dp"
-                    android:layout_marginTop="@dimen/thirty_dp"
-                    android:layout_marginRight="@dimen/thirty_dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/seventy_five_dp"
+                    android:layout_marginRight="@dimen/seventy_five_dp"
+                    android:layout_marginTop="@dimen/ten_dp"
+
                     android:background="@drawable/button_background"
                     android:text="@string/submit"
                     android:textColor="@color/white"

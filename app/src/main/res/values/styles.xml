@@ -2,11 +2,36 @@
 <resources>
 
 
-    <style name="CustomModalSheet_UserInfo" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/bg_bottom_sheet_user_info</item>
+    <!-- Base application theme. -->
+    <style name="AppTheme.FullScreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
-    <style name="AppBottomSheetDialogTheme_UserInfo" parent="Theme.Design.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/CustomModalSheet_UserInfo</item>
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:actionMenuTextColor">@color/white</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme_EnterDetails</item>
+    </style>
+
+    <style name="BottomSheet_UserInfo" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_enter_details</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme_EnterDetails" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheet_UserInfo</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet_dialog_fragment</item>
+    </style>
+
+    <style name="SplashAppTheme" parent="AppTheme" >
+        <item name="android:windowBackground">@drawable/splash</item>
     </style>
 </resources>
