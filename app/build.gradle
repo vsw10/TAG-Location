@@ -9,12 +9,6 @@ plugins {
 
 android {
     signingConfigs {
-        debug {
-            storeFile file('C:\\Users\\vsw70\\tag.jks')
-            storePassword 'yspcl@123'
-            keyAlias 'key0'
-            keyPassword 'yspcl@123'
-        }
         release {
             storeFile file('C:\\Users\\vsw70\\tag.jks')
             storePassword 'yspcl@123'
@@ -27,6 +21,13 @@ android {
             keyAlias 'key0'
             keyPassword 'yspcl@123'
         }
+        debug {
+            storeFile file('C:\\Users\\vsw70\\tag.jks')
+            storePassword 'yspcl@123'
+            keyAlias 'key0'
+            keyPassword 'yspcl@123'
+        }
+
     }
     namespace 'assignment.home.taglocation'
     //noinspection GradleCompatible
@@ -36,8 +37,8 @@ android {
         applicationId "assignment.home.taglocation"
         minSdk 24
         targetSdk 32
-        versionCode 2
-        versionName "0.0.1"
+        versionCode 3
+        versionName "0.0.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

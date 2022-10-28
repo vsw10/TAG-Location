@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import assignment.home.taglocation.R
 import assignment.home.taglocation.databinding.FragmentLocationMarkBinding
@@ -29,6 +30,8 @@ class MarkLocationFragment : BottomSheetDialogFragment(), View.OnClickListener {
     val markLocationFragmentViewModel by lazy {
         ViewModelProviders.of(this).get(MarkLocationFragmentViewModel::class.java)
     }
+
+    lateinit var tagLocationModel: TagLocationModel
 
     override fun onClick(view: View?) {
         when (view?.id) {
@@ -139,6 +142,24 @@ class MarkLocationFragment : BottomSheetDialogFragment(), View.OnClickListener {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        markLocationFragmentViewModel.getTagLocationModel()
+            ?.observe(viewLifecycleOwner, Observer<TagLocationModel> {
+                it?.propertyName?.let {
+                    fragmentLocationMarkBinding.propertyCoordinatesEdittext.setText(
+                        it
+                    )
+                }
+                fragmentLocationMarkBinding.propertyCoordinatesEdittext.setText(
+                    it.propertyCoordinates
+                )
+
+
+            })
+    }
+
     override fun getTheme(): Int {
         return R.style.AppBottomSheetDialogTheme_EnterDetails
     }
@@ -164,5 +185,24 @@ class MarkLocationFragment : BottomSheetDialogFragment(), View.OnClickListener {
             )
         }
         super.onSaveInstanceState(outState)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        saveTagLocationModel()
+    }
+
+    private fun saveTagLocationModel() {
+        // saveData in LiveData
+        tagLocationModel = TagLocationModel()
+        fragmentLocationMarkBinding.propertyNameEdittext.let {
+            tagLocationModel.propertyName = it.text.toString()
+
+        }
+        tagLocationModel.propertyCoordinates =
+            fragmentLocationMarkBinding.propertyCoordinatesEdittext.text.toString()
+
+
+        markLocationFragmentViewModel.setTagLocationModel(tagLocationModel)
     }
 }
